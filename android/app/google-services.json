@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "542589366256",
+    "firebase_url": "https://srijan6-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "srijan6",
+    "storage_bucket": "srijan6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:542589366256:android:731d9c71769e9b4f037735",
+        "android_client_info": {
+          "package_name": "com.example.chat_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4XGkK0G4TUyomn_mkylriONhnGmsRPUQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
