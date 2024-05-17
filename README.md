@@ -14,3 +14,9 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+
+Here I have used LocalHost , so In the next Repository I will provide basic-chat-backend , where I will provide all backend code written in Nest . Also Provide the step by step Installation Process in Nest.js
+
+
+![Screenshot 2024-05-17 at 1 13 17 PM](https://github.com/srijanC2306/basic-chat-app/assets/51461624/af64dd33-55c5-43e0-8ac1-c239d420fd57)
