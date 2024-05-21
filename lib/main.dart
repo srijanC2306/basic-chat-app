@@ -1,33 +1,41 @@
 import 'package:chat_app/first_view/first_view.dart';
 import 'package:chat_app/scecond_screen.dart';
-import 'package:chat_app/services/firebase_messaging_service.dart';
+import 'package:chat_app/services/push_notification_service.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
+final GlobalKey<NavigatorState> globalNavKey = GlobalKey<NavigatorState>();
 
-final GlobalKey<NavigatorState> globalNavKey  = GlobalKey<NavigatorState>();
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  FirebaseMessagingService().initialize();
-  FirebaseMessagingService().getToken();
-  FirebaseAnalytics analytics = FirebaseAnalytics.instance ;
+  FirebaseAnalytics analytics = FirebaseAnalytics.instance;
 
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
-
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final PushNotificationService _pushNotificationService =
+      PushNotificationService();
+
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-       final  FirebaseAnalytics analytics = FirebaseAnalytics.instance ;
-       final FirebaseAnalyticsObserver observer = FirebaseAnalyticsObserver(analytics: analytics)  ;
+    _pushNotificationService.initialize(context);
+    final FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+    final FirebaseAnalyticsObserver observer =
+        FirebaseAnalyticsObserver(analytics: analytics);
     return MaterialApp(
-      navigatorObservers:  <NavigatorObserver>[observer],
+      navigatorObservers: <NavigatorObserver>[observer],
       title: 'Flutter Demo',
       navigatorKey: globalNavKey,
       onGenerateRoute: _onGenerateRoute,
@@ -38,9 +46,9 @@ class MyApp extends StatelessWidget {
       home: FirstView(),
     );
   }
+
   Route _onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
-
       case SecondScreen.secondScreenRoute:
         return MaterialPageRoute(builder: (_) => SecondScreen());
       default:
@@ -48,4 +56,3 @@ class MyApp extends StatelessWidget {
     }
   }
 }
-
